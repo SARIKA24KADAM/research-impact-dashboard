@@ -57,8 +57,6 @@ These are static previews generated from the fictional operational tables, not s
 
 ![Canada renewable share of final energy consumption in the public Kaggle dataset](reports/figures/canada_renewable_share.png)
 
-Source: Ansh Tanwar, *Global Data on Sustainable Energy (2000–2020)*, Kaggle, CC BY 4.0. This country trend is context only and is not attributed to the fictional research program.
-
 ## Power BI report
 
 This repository includes Power Query examples, DAX measures, a star-schema proposal and a page-by-page report specification. It does not include a `.pbix` or `.pbip` file because Power BI Desktop was not available in the build environment. Follow [the Power BI build guide](powerbi/BUILD_GUIDE.md) to create and save the interactive report locally.
