@@ -1,0 +1,13 @@
+RiskID,ProjectID,RiskCategory,Description,Likelihood,Impact,Status
+RK-001,P001,Schedule,Fictional example risk for dashboard demonstration.,Medium,High,Open
+RK-002,P002,Partner capacity,Fictional example risk for dashboard demonstration.,High,Low,Open
+RK-003,P003,Data availability,Fictional example risk for dashboard demonstration.,Low,Medium,Mitigated
+RK-004,P004,Supply chain,Fictional example risk for dashboard demonstration.,Medium,High,Open
+RK-005,P005,Schedule,Fictional example risk for dashboard demonstration.,High,Low,Open
+RK-006,P006,Partner capacity,Fictional example risk for dashboard demonstration.,Low,Medium,Mitigated
+RK-007,P007,Data availability,Fictional example risk for dashboard demonstration.,Medium,High,Open
+RK-008,P008,Supply chain,Fictional example risk for dashboard demonstration.,High,Low,Open
+RK-009,P009,Schedule,Fictional example risk for dashboard demonstration.,Low,Medium,Mitigated
+RK-010,P010,Partner capacity,Fictional example risk for dashboard demonstration.,Medium,High,Open
+RK-011,P011,Data availability,Fictional example risk for dashboard demonstration.,High,Low,Open
+RK-012,P012,Supply chain,Fictional example risk for dashboard demonstration.,Low,Medium,Mitigated

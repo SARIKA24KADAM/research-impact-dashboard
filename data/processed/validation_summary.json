@@ -1,0 +1,149 @@
+{
+  "project": "Research Program Performance & Impact Reporting Dashboard",
+  "fictional_data": true,
+  "check_count": 28,
+  "passed_count": 28,
+  "all_passed": true,
+  "checks": {
+    "themes.csv: unique non-empty ThemeID": {
+      "passed": true,
+      "rows": 4,
+      "duplicate_count": 0,
+      "empty_key_count": 0
+    },
+    "owners.csv: unique non-empty OwnerID": {
+      "passed": true,
+      "rows": 6,
+      "duplicate_count": 0,
+      "empty_key_count": 0
+    },
+    "projects.csv: unique non-empty ProjectID": {
+      "passed": true,
+      "rows": 12,
+      "duplicate_count": 0,
+      "empty_key_count": 0
+    },
+    "kpi_definitions.csv: unique non-empty KPIID": {
+      "passed": true,
+      "rows": 4,
+      "duplicate_count": 0,
+      "empty_key_count": 0
+    },
+    "budgets.csv: unique non-empty BudgetID": {
+      "passed": true,
+      "rows": 48,
+      "duplicate_count": 0,
+      "empty_key_count": 0
+    },
+    "commitments.csv: unique non-empty CommitmentID": {
+      "passed": true,
+      "rows": 36,
+      "duplicate_count": 0,
+      "empty_key_count": 0
+    },
+    "expenditures.csv: unique non-empty ExpenditureID": {
+      "passed": true,
+      "rows": 144,
+      "duplicate_count": 0,
+      "empty_key_count": 0
+    },
+    "kpi_actuals.csv: unique non-empty ActualID": {
+      "passed": true,
+      "rows": 576,
+      "duplicate_count": 0,
+      "empty_key_count": 0
+    },
+    "reporting_obligations.csv: unique non-empty ObligationID": {
+      "passed": true,
+      "rows": 144,
+      "duplicate_count": 0,
+      "empty_key_count": 0
+    },
+    "milestones.csv: unique non-empty MilestoneID": {
+      "passed": true,
+      "rows": 48,
+      "duplicate_count": 0,
+      "empty_key_count": 0
+    },
+    "research_outputs.csv: unique non-empty OutputID": {
+      "passed": true,
+      "rows": 48,
+      "duplicate_count": 0,
+      "empty_key_count": 0
+    },
+    "risks.csv: unique non-empty RiskID": {
+      "passed": true,
+      "rows": 12,
+      "duplicate_count": 0,
+      "empty_key_count": 0
+    },
+    "corrective_actions.csv: unique non-empty ActionID": {
+      "passed": true,
+      "rows": 12,
+      "duplicate_count": 0,
+      "empty_key_count": 0
+    },
+    "dq_issues.csv: unique non-empty IssueID": {
+      "passed": true,
+      "rows": 16,
+      "duplicate_count": 0,
+      "empty_key_count": 0
+    },
+    "budgets.csv: project references resolve": {
+      "passed": true,
+      "invalid_count": 0
+    },
+    "commitments.csv: project references resolve": {
+      "passed": true,
+      "invalid_count": 0
+    },
+    "expenditures.csv: project references resolve": {
+      "passed": true,
+      "invalid_count": 0
+    },
+    "kpi_actuals.csv: project references resolve": {
+      "passed": true,
+      "invalid_count": 0
+    },
+    "reporting_obligations.csv: project references resolve": {
+      "passed": true,
+      "invalid_count": 0
+    },
+    "milestones.csv: project references resolve": {
+      "passed": true,
+      "invalid_count": 0
+    },
+    "research_outputs.csv: project references resolve": {
+      "passed": true,
+      "invalid_count": 0
+    },
+    "risks.csv: project references resolve": {
+      "passed": true,
+      "invalid_count": 0
+    },
+    "corrective_actions.csv: project references resolve": {
+      "passed": true,
+      "invalid_count": 0
+    },
+    "dq_issues.csv: project references resolve": {
+      "passed": true,
+      "invalid_count": 0
+    },
+    "budgets.csv: numeric and non-negative ApprovedBudgetCAD": {
+      "passed": true,
+      "invalid_count": 0
+    },
+    "commitments.csv: numeric and non-negative AmountCAD": {
+      "passed": true,
+      "invalid_count": 0
+    },
+    "expenditures.csv: numeric and non-negative AmountCAD": {
+      "passed": true,
+      "invalid_count": 0
+    },
+    "kpi_actuals.csv: numeric and non-negative ActualValue,TargetValue": {
+      "passed": true,
+      "invalid_count": 0
+    }
+  }
+}

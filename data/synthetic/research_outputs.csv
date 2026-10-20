@@ -1,0 +1,49 @@
+OutputID,ProjectID,OutputType,Title,PublicationDate,PeerReviewed,Status
+O-001,P001,Conference paper,Demonstration research output 01,2024-02-15,Yes,Published
+O-002,P002,Dataset,Demonstration research output 02,2025-03-15,No,Published
+O-003,P003,Technical report,Demonstration research output 03,2023-04-15,No,Published
+O-004,P004,Journal article,Demonstration research output 04,2024-05-15,Yes,Published
+O-005,P005,Conference paper,Demonstration research output 05,2025-06-15,Yes,Published
+O-006,P006,Dataset,Demonstration research output 06,2023-07-15,No,Published
+O-007,P007,Technical report,Demonstration research output 07,2024-08-15,No,Published
+O-008,P008,Journal article,Demonstration research output 08,2025-09-15,Yes,Published
+O-009,P009,Conference paper,Demonstration research output 09,2023-10-15,Yes,Published
+O-010,P010,Dataset,Demonstration research output 10,2024-11-15,No,Published
+O-011,P011,Technical report,Demonstration research output 11,2025-12-15,No,Published
+O-012,P012,Journal article,Demonstration research output 12,2023-01-15,Yes,Published
+O-013,P001,Conference paper,Demonstration research output 13,2024-02-15,Yes,Published
+O-014,P002,Dataset,Demonstration research output 14,2025-03-15,No,Published
+O-015,P003,Technical report,Demonstration research output 15,2023-04-15,No,Published
+O-016,P004,Journal article,Demonstration research output 16,2024-05-15,Yes,Published
+O-017,P005,Conference paper,Demonstration research output 17,2025-06-15,Yes,Published
+O-018,P006,Dataset,Demonstration research output 18,2023-07-15,No,Published
+O-019,P007,Technical report,Demonstration research output 19,2024-08-15,No,Published
+O-020,P008,Journal article,Demonstration research output 20,2025-09-15,Yes,Published
+O-021,P009,Conference paper,Demonstration research output 21,2023-10-15,Yes,Published
+O-022,P010,Dataset,Demonstration research output 22,2024-11-15,No,Published
+O-023,P011,Technical report,Demonstration research output 23,2025-12-15,No,Published
+O-024,P012,Journal article,Demonstration research output 24,2023-01-15,Yes,Published
+O-025,P001,Conference paper,Demonstration research output 25,2024-02-15,Yes,Published
+O-026,P002,Dataset,Demonstration research output 26,2025-03-15,No,Published
+O-027,P003,Technical report,Demonstration research output 27,2023-04-15,No,Published
+O-028,P004,Journal article,Demonstration research output 28,2024-05-15,Yes,Published
+O-029,P005,Conference paper,Demonstration research output 29,2025-06-15,Yes,Published
+O-030,P006,Dataset,Demonstration research output 30,2023-07-15,No,Published
+O-031,P007,Technical report,Demonstration research output 31,2024-08-15,No,Published
+O-032,P008,Journal article,Demonstration research output 32,2025-09-15,Yes,Published
+O-033,P009,Conference paper,Demonstration research output 33,2023-10-15,Yes,Published
+O-034,P010,Dataset,Demonstration research output 34,2024-11-15,No,Published
+O-035,P011,Technical report,Demonstration research output 35,2025-12-15,No,Published
+O-036,P012,Journal article,Demonstration research output 36,2023-01-15,Yes,Published
+O-037,P001,Conference paper,Demonstration research output 37,2024-02-15,Yes,Published
+O-038,P002,Dataset,Demonstration research output 38,2025-03-15,No,Published
+O-039,P003,Technical report,Demonstration research output 39,2023-04-15,No,Published
+O-040,P004,Journal article,Demonstration research output 40,2024-05-15,Yes,Published
+O-041,P005,Conference paper,Demonstration research output 41,2025-06-15,Yes,Published
+O-042,P006,Dataset,Demonstration research output 42,2023-07-15,No,Published
+O-043,P007,Technical report,Demonstration research output 43,2024-08-15,No,Published
+O-044,P008,Journal article,Demonstration research output 44,2025-09-15,Yes,Published
+O-045,P009,Conference paper,Demonstration research output 45,2023-10-15,Yes,Published
+O-046,P010,Dataset,Demonstration research output 46,2024-11-15,No,Published
+O-047,P011,Technical report,Demonstration research output 47,2025-12-15,No,Published
+O-048,P012,Journal article,Demonstration research output 48,2023-01-15,Yes,Published

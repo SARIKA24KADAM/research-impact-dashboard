@@ -1,0 +1,17 @@
+IssueID,ProjectID,TableName,IssueType,Severity,Description,Status,OpenedDate,OwnerID
+DQ-001,P001,Milestones,Missing metadata,Medium,Fictional issue-tracker example; not a failed generator check.,Open,2025-02-05,O01
+DQ-002,P002,Finance,Definition clarification,Medium,Fictional issue-tracker example; not a failed generator check.,Open,2025-03-05,O02
+DQ-003,P003,Reporting,Source reconciliation,Medium,Fictional issue-tracker example; not a failed generator check.,Resolved,2025-04-05,O03
+DQ-004,P004,KPI Actuals,Late submission,High,Fictional issue-tracker example; not a failed generator check.,Open,2025-05-05,O04
+DQ-005,P005,Milestones,Missing metadata,Medium,Fictional issue-tracker example; not a failed generator check.,Open,2025-06-05,O05
+DQ-006,P006,Finance,Definition clarification,Medium,Fictional issue-tracker example; not a failed generator check.,Resolved,2025-07-05,O06
+DQ-007,P007,Reporting,Source reconciliation,Medium,Fictional issue-tracker example; not a failed generator check.,Open,2025-08-05,O01
+DQ-008,P008,KPI Actuals,Late submission,High,Fictional issue-tracker example; not a failed generator check.,Open,2025-09-05,O02
+DQ-009,P009,Milestones,Missing metadata,Medium,Fictional issue-tracker example; not a failed generator check.,Resolved,2025-10-05,O03
+DQ-010,P010,Finance,Definition clarification,Medium,Fictional issue-tracker example; not a failed generator check.,Open,2025-11-05,O04
+DQ-011,P011,Reporting,Source reconciliation,Medium,Fictional issue-tracker example; not a failed generator check.,Open,2025-12-05,O05
+DQ-012,P012,KPI Actuals,Late submission,High,Fictional issue-tracker example; not a failed generator check.,Resolved,2025-01-05,O06
+DQ-013,P001,Milestones,Missing metadata,Medium,Fictional issue-tracker example; not a failed generator check.,Open,2025-02-05,O01
+DQ-014,P002,Finance,Definition clarification,Medium,Fictional issue-tracker example; not a failed generator check.,Open,2025-03-05,O02
+DQ-015,P003,Reporting,Source reconciliation,Medium,Fictional issue-tracker example; not a failed generator check.,Resolved,2025-04-05,O03
+DQ-016,P004,KPI Actuals,Late submission,High,Fictional issue-tracker example; not a failed generator check.,Open,2025-05-05,O04

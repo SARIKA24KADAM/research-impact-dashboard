@@ -1,0 +1,5 @@
+KPIID,KPIName,Unit,Frequency,TargetDirection,DefaultTarget,Definition
+K01,Prototype readiness,points (0-100),Quarterly,Higher,75,Illustrative readiness score; scale and rubric are fictional.
+K02,Research outputs,count,Quarterly,Higher,2,Count of outputs recorded for the project and quarter.
+K03,Partner engagement,engagements,Quarterly,Higher,3,Illustrative count of documented partner engagements.
+K04,Energy intensity reduction,percent,Quarterly,Higher,8,Illustrative reduction from a fictional project baseline.

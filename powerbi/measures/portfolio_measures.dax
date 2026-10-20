@@ -1,0 +1,28 @@
+// Add these measures after loading the corresponding CSV tables.
+Approved Budget CAD = SUM ( budgets[ApprovedBudgetCAD] )
+
+Actual Expenditure CAD =
+CALCULATE ( SUM ( expenditures[AmountCAD] ), expenditures[Status] = "Posted" )
+
+Active Commitments CAD =
+CALCULATE ( SUM ( commitments[AmountCAD] ), commitments[Status] = "Active" )
+
+Budget Remaining CAD = [Approved Budget CAD] - [Actual Expenditure CAD]
+
+Budget Utilization % = DIVIDE ( [Actual Expenditure CAD], [Approved Budget CAD] )
+
+Expected Reports = COUNTROWS ( reporting_obligations )
+
+On-time Reports =
+CALCULATE ( COUNTROWS ( reporting_obligations ), reporting_obligations[Status] = "On Time" )
+
+On-time Reporting % = DIVIDE ( [On-time Reports], [Expected Reports] )
+
+Recorded Research Outputs = COUNTROWS ( research_outputs )
+
+Open Risks = CALCULATE ( COUNTROWS ( risks ), risks[Status] = "Open" )
+
+Open Data Quality Issues = CALCULATE ( COUNTROWS ( dq_issues ), dq_issues[Status] = "Open" )
+
+// Meaningful only when a single KPI is selected because units differ.
+Average KPI Actual = AVERAGE ( kpi_actuals[ActualValue] )
