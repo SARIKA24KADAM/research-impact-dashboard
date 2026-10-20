@@ -74,5 +74,3 @@ This is a demonstration model, not an audited finance system, grant-management s
 ## Portfolio summary
 
 > Built a reproducible research-program performance reporting prototype using fictional operational data, a documented star schema, Power Query transformations, DAX measure definitions, data-quality checks and attributed public energy context.
-
-See [CV and portfolio wording](docs/cv_and_portfolio_summary.md).
