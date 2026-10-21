@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "ResearchContext_Visual_02",
+  "position": {
+    "x": 645,
+    "y": 60,
+    "z": 2000,
+    "height": 570,
+    "width": 590,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "public_energy_context"
+                    }
+                  },
+                  "Property": "Year"
+                }
+              },
+              "queryRef": "public_energy_context.Year",
+              "nativeQueryRef": "Year",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "public_energy_context"
+                    }
+                  },
+                  "Property": "RenewableShare"
+                }
+              },
+              "queryRef": "public_energy_context.RenewableShare",
+              "nativeQueryRef": "RenewableShare",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {},
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "\"'Canada renewable energy share (public context)'\""
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+

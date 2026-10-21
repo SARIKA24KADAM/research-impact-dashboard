@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "KPIHealth_Visual_01",
+  "position": {
+    "x": 30,
+    "y": 60,
+    "z": 1000,
+    "height": 570,
+    "width": 590,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi_actuals"
+                    }
+                  },
+                  "Property": "PeriodEnd"
+                }
+              },
+              "queryRef": "kpi_actuals.PeriodEnd",
+              "nativeQueryRef": "PeriodEnd",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi_actuals"
+                    }
+                  },
+                  "Property": "Prototype Readiness"
+                }
+              },
+              "queryRef": "kpi_actuals.Prototype Readiness",
+              "nativeQueryRef": "Prototype Readiness",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {},
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "\"'Prototype readiness by quarter'\""
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+

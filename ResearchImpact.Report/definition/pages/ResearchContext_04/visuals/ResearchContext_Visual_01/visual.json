@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "ResearchContext_Visual_01",
+  "position": {
+    "x": 30,
+    "y": 60,
+    "z": 1000,
+    "height": 570,
+    "width": 590,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "research_outputs"
+                    }
+                  },
+                  "Property": "OutputType"
+                }
+              },
+              "queryRef": "research_outputs.OutputType",
+              "nativeQueryRef": "OutputType",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "research_outputs"
+                    }
+                  },
+                  "Property": "Recorded Research Outputs"
+                }
+              },
+              "queryRef": "research_outputs.Recorded Research Outputs",
+              "nativeQueryRef": "Recorded Research Outputs",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {},
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "\"'Research outputs by type'\""
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+

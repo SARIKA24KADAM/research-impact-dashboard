@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "KPIHealth_Visual_02",
+  "position": {
+    "x": 645,
+    "y": 60,
+    "z": 2000,
+    "height": 570,
+    "width": 590,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "reporting_obligations"
+                    }
+                  },
+                  "Property": "ReportingPeriodEnd"
+                }
+              },
+              "queryRef": "reporting_obligations.ReportingPeriodEnd",
+              "nativeQueryRef": "ReportingPeriodEnd",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "reporting_obligations"
+                    }
+                  },
+                  "Property": "On-time Reports"
+                }
+              },
+              "queryRef": "reporting_obligations.On-time Reports",
+              "nativeQueryRef": "On-time Reports",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {},
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "\"'On-time submissions by quarter'\""
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+

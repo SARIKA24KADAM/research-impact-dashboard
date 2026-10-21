@@ -4,3 +4,5 @@ __pycache__/
 .env
 Thumbs.db
 desktop.ini
+**/.pbi/localSettings.json
+**/.pbi/cache.abf

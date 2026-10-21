@@ -57,9 +57,11 @@ These are static previews generated from the fictional operational tables, not s
 
 ![Canada renewable share of final energy consumption in the public Kaggle dataset](reports/figures/canada_renewable_share.png)
 
-## Power BI report
+## Power BI project
 
-This repository includes Power Query examples, DAX measures, a star-schema proposal and a page-by-page report specification. It does not include a `.pbix` or `.pbip` file because Power BI Desktop was not available in the build environment. Follow [the Power BI build guide](powerbi/BUILD_GUIDE.md) to create and save the interactive report locally.
+Open [ResearchImpact.pbip](ResearchImpact.pbip) in Power BI Desktop. It contains a semantic model with 15 tables and a four-page report for executive overview, finance and delivery, KPI and reporting health, and research/public context.
+
+The model reads the CSV files from this public repository's `main` branch, so an internet connection is required to refresh. Set the web source credentials to Anonymous if prompted. The PBIP project format is a Power BI Desktop preview feature; enable **Power BI Project (.pbip) save option** under **File > Options and settings > Options > Preview features** if Desktop asks. To make a standalone `.pbix`, open the project and use **File > Save as**.
 
 ## Public data and attribution
 

@@ -1,0 +1,89 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "Overview_Visual_01",
+  "position": {
+    "x": 30,
+    "y": 60,
+    "z": 1000,
+    "height": 570,
+    "width": 590,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "themes"
+                    }
+                  },
+                  "Property": "ThemeName"
+                }
+              },
+              "queryRef": "themes.ThemeName",
+              "nativeQueryRef": "ThemeName",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "budgets"
+                    }
+                  },
+                  "Property": "Approved Budget CAD"
+                }
+              },
+              "queryRef": "budgets.Approved Budget CAD",
+              "nativeQueryRef": "Approved Budget CAD",
+              "active": true
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "expenditures"
+                    }
+                  },
+                  "Property": "Actual Expenditure CAD"
+                }
+              },
+              "queryRef": "expenditures.Actual Expenditure CAD",
+              "nativeQueryRef": "Actual Expenditure CAD",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {},
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "\"'Portfolio finance by theme'\""
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+

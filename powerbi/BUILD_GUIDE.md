@@ -1,15 +1,17 @@
-# Build the interactive report in Power BI Desktop
+# Open the Power BI project
 
-This repository contains source data, Power Query examples and measure definitions. It does not contain a `.pbix`/`.pbip` because Power BI Desktop was not available while this repository was assembled.
+This repository includes a Power BI Project at `ResearchImpact.pbip`, with a semantic model and a four-page report.
 
-1. Run the data generator and validation commands from the root README.
-2. In Desktop, import each CSV in `data/synthetic/`. Import the public CSV separately if you use the context page.
-3. Apply the matching query in `powerbi/queries/`, or use it as a template. Set date, integer, decimal and currency types deliberately.
-4. Create relationships from `docs/data_model.md`. Keep fact tables separate to prevent fan-out and double counting.
-5. Add measures from `powerbi/measures/portfolio_measures.dax` and compare them with filtered source examples.
-6. Create the four pages in `docs/report_pages.md`.
-7. Add source, fictional-data and caveat labels. Check keyboard navigation, contrast, titles, units and alt text.
-8. Save as Power BI Project (`.pbip`) if your Desktop version supports it, then commit the project folder. Otherwise save `.pbix` and consider adding a PDF or screenshots.
-9. Record the Desktop version, refresh date and checks in `docs/validation_log.md`.
+## Open and refresh
 
-Official Microsoft documentation: [Power BI Projects](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview), [report definition](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report), [semantic model definition](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-dataset/).
+1. Install Power BI Desktop for Windows.
+2. If needed, enable **Power BI Project (.pbip) save option** in **File > Options and settings > Options > Preview features**.
+3. Open `ResearchImpact.pbip` from the repository root.
+4. Refresh the model. The M queries read the CSV files from the public GitHub `main` branch. Set the web source credential to **Anonymous** if prompted; an internet connection is required.
+5. Save as `.pbix` from **File > Save as** if you need a single-file report.
+
+The semantic model is stored in `ResearchImpact.SemanticModel/model.bim` (TMSL), and the report uses the PBIR project structure in `ResearchImpact.Report`. The project uses explicit DAX measures and relationships to keep budget, commitment and expenditure facts separate. Public country-level energy context remains in its own table.
+
+Power BI Desktop is not installed in the environment where this project was assembled, so the PBIP could not be opened and refreshed here. The project follows Microsoft's documented PBIP, PBIR and semantic model folder formats; the first open in Desktop is the final compatibility check.
+
+Microsoft documentation: [Power BI Projects](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview), [report folder](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report), [semantic model folder](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-dataset).

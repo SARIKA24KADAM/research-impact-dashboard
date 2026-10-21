@@ -1,0 +1,1157 @@
+{
+  "compatibilityLevel": 1600,
+  "model": {
+    "culture": "en-CA",
+    "sourceQueryCulture": "en-CA",
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "discourageImplicitMeasures": false,
+    "annotations": [],
+    "expressions": [],
+    "functions": [],
+    "perspectives": [],
+    "roles": [],
+    "relationships": [
+      {
+        "name": "Projects_Themes",
+        "fromTable": "projects",
+        "fromColumn": "ThemeID",
+        "toTable": "themes",
+        "toColumn": "ThemeID",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      },
+      {
+        "name": "Projects_Owners",
+        "fromTable": "projects",
+        "fromColumn": "OwnerID",
+        "toTable": "owners",
+        "toColumn": "OwnerID",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      },
+      {
+        "name": "KPIActuals_Projects",
+        "fromTable": "kpi_actuals",
+        "fromColumn": "ProjectID",
+        "toTable": "projects",
+        "toColumn": "ProjectID",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      },
+      {
+        "name": "KPIActuals_Definitions",
+        "fromTable": "kpi_actuals",
+        "fromColumn": "KPIID",
+        "toTable": "kpi_definitions",
+        "toColumn": "KPIID",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      },
+      {
+        "name": "budgets_Projects",
+        "fromTable": "budgets",
+        "fromColumn": "ProjectID",
+        "toTable": "projects",
+        "toColumn": "ProjectID",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      },
+      {
+        "name": "commitments_Projects",
+        "fromTable": "commitments",
+        "fromColumn": "ProjectID",
+        "toTable": "projects",
+        "toColumn": "ProjectID",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      },
+      {
+        "name": "expenditures_Projects",
+        "fromTable": "expenditures",
+        "fromColumn": "ProjectID",
+        "toTable": "projects",
+        "toColumn": "ProjectID",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      },
+      {
+        "name": "milestones_Projects",
+        "fromTable": "milestones",
+        "fromColumn": "ProjectID",
+        "toTable": "projects",
+        "toColumn": "ProjectID",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      },
+      {
+        "name": "reporting_obligations_Projects",
+        "fromTable": "reporting_obligations",
+        "fromColumn": "ProjectID",
+        "toTable": "projects",
+        "toColumn": "ProjectID",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      },
+      {
+        "name": "research_outputs_Projects",
+        "fromTable": "research_outputs",
+        "fromColumn": "ProjectID",
+        "toTable": "projects",
+        "toColumn": "ProjectID",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      },
+      {
+        "name": "risks_Projects",
+        "fromTable": "risks",
+        "fromColumn": "ProjectID",
+        "toTable": "projects",
+        "toColumn": "ProjectID",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      },
+      {
+        "name": "corrective_actions_Projects",
+        "fromTable": "corrective_actions",
+        "fromColumn": "ProjectID",
+        "toTable": "projects",
+        "toColumn": "ProjectID",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      },
+      {
+        "name": "dq_issues_Projects",
+        "fromTable": "dq_issues",
+        "fromColumn": "ProjectID",
+        "toTable": "projects",
+        "toColumn": "ProjectID",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      },
+      {
+        "name": "Actions_Risks",
+        "fromTable": "corrective_actions",
+        "fromColumn": "RiskID",
+        "toTable": "risks",
+        "toColumn": "RiskID",
+        "crossFilteringBehavior": "oneDirection",
+        "isActive": true
+      }
+    ],
+    "tables": [
+      {
+        "name": "themes",
+        "columns": [
+          {
+            "name": "ThemeID",
+            "dataType": "string",
+            "sourceColumn": "ThemeID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ThemeName",
+            "dataType": "string",
+            "sourceColumn": "ThemeName",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "themes",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(Web.Contents(\"https://raw.githubusercontent.com/SARIKA24KADAM/research-impact-dashboard/main/data/synthetic/themes.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"ThemeID\", type text}, {\"ThemeName\", type text}}, \"en-CA\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "owners",
+        "columns": [
+          {
+            "name": "OwnerID",
+            "dataType": "string",
+            "sourceColumn": "OwnerID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "OwnerName",
+            "dataType": "string",
+            "sourceColumn": "OwnerName",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Role",
+            "dataType": "string",
+            "sourceColumn": "Role",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "owners",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(Web.Contents(\"https://raw.githubusercontent.com/SARIKA24KADAM/research-impact-dashboard/main/data/synthetic/owners.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"OwnerID\", type text}, {\"OwnerName\", type text}, {\"Role\", type text}}, \"en-CA\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "projects",
+        "columns": [
+          {
+            "name": "ProjectID",
+            "dataType": "string",
+            "sourceColumn": "ProjectID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ProjectName",
+            "dataType": "string",
+            "sourceColumn": "ProjectName",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ThemeID",
+            "dataType": "string",
+            "sourceColumn": "ThemeID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "OwnerID",
+            "dataType": "string",
+            "sourceColumn": "OwnerID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "StartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PlannedEndDate",
+            "dataType": "dateTime",
+            "sourceColumn": "PlannedEndDate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ProjectStatus",
+            "dataType": "string",
+            "sourceColumn": "ProjectStatus",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Priority",
+            "dataType": "string",
+            "sourceColumn": "Priority",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "projects",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(Web.Contents(\"https://raw.githubusercontent.com/SARIKA24KADAM/research-impact-dashboard/main/data/synthetic/projects.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"ProjectID\", type text}, {\"ProjectName\", type text}, {\"ThemeID\", type text}, {\"OwnerID\", type text}, {\"StartDate\", type date}, {\"PlannedEndDate\", type date}, {\"ProjectStatus\", type text}, {\"Priority\", type text}}, \"en-CA\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Active Projects",
+            "expression": "CALCULATE(DISTINCTCOUNT(projects[ProjectID]), projects[ProjectStatus] = \"Active\")",
+            "formatString": "#,##0"
+          }
+        ]
+      },
+      {
+        "name": "kpi_definitions",
+        "columns": [
+          {
+            "name": "KPIID",
+            "dataType": "string",
+            "sourceColumn": "KPIID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "KPIName",
+            "dataType": "string",
+            "sourceColumn": "KPIName",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Unit",
+            "dataType": "string",
+            "sourceColumn": "Unit",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Frequency",
+            "dataType": "string",
+            "sourceColumn": "Frequency",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TargetDirection",
+            "dataType": "string",
+            "sourceColumn": "TargetDirection",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DefaultTarget",
+            "dataType": "string",
+            "sourceColumn": "DefaultTarget",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Definition",
+            "dataType": "string",
+            "sourceColumn": "Definition",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "kpi_definitions",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(Web.Contents(\"https://raw.githubusercontent.com/SARIKA24KADAM/research-impact-dashboard/main/data/synthetic/kpi_definitions.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"KPIID\", type text}, {\"KPIName\", type text}, {\"Unit\", type text}, {\"Frequency\", type text}, {\"TargetDirection\", type text}, {\"DefaultTarget\", type text}, {\"Definition\", type text}}, \"en-CA\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "budgets",
+        "columns": [
+          {
+            "name": "BudgetID",
+            "dataType": "string",
+            "sourceColumn": "BudgetID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ProjectID",
+            "dataType": "string",
+            "sourceColumn": "ProjectID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FiscalYear",
+            "dataType": "int64",
+            "sourceColumn": "FiscalYear",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "ApprovedBudgetCAD",
+            "dataType": "decimal",
+            "sourceColumn": "ApprovedBudgetCAD",
+            "summarizeBy": "sum",
+            "formatString": "$#,##0;($#,##0);$#,##0"
+          },
+          {
+            "name": "ApprovedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ApprovedDate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Currency",
+            "dataType": "string",
+            "sourceColumn": "Currency",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "budgets",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(Web.Contents(\"https://raw.githubusercontent.com/SARIKA24KADAM/research-impact-dashboard/main/data/synthetic/budgets.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"BudgetID\", type text}, {\"ProjectID\", type text}, {\"FiscalYear\", Int64.Type}, {\"ApprovedBudgetCAD\", Currency.Type}, {\"ApprovedDate\", type date}, {\"Currency\", type text}}, \"en-CA\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Approved Budget CAD",
+            "expression": "SUM(budgets[ApprovedBudgetCAD])",
+            "formatString": "$#,##0;($#,##0);$#,##0"
+          },
+          {
+            "name": "Budget Remaining CAD",
+            "expression": "[Approved Budget CAD] - [Actual Expenditure CAD]",
+            "formatString": "$#,##0;($#,##0);$#,##0"
+          },
+          {
+            "name": "Budget Utilization %",
+            "expression": "DIVIDE([Actual Expenditure CAD], [Approved Budget CAD])",
+            "formatString": "0.0%"
+          }
+        ]
+      },
+      {
+        "name": "commitments",
+        "columns": [
+          {
+            "name": "CommitmentID",
+            "dataType": "string",
+            "sourceColumn": "CommitmentID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ProjectID",
+            "dataType": "string",
+            "sourceColumn": "ProjectID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FunderName",
+            "dataType": "string",
+            "sourceColumn": "FunderName",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CommitmentDate",
+            "dataType": "dateTime",
+            "sourceColumn": "CommitmentDate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "AmountCAD",
+            "dataType": "decimal",
+            "sourceColumn": "AmountCAD",
+            "summarizeBy": "sum",
+            "formatString": "$#,##0;($#,##0);$#,##0"
+          },
+          {
+            "name": "Status",
+            "dataType": "string",
+            "sourceColumn": "Status",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "commitments",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(Web.Contents(\"https://raw.githubusercontent.com/SARIKA24KADAM/research-impact-dashboard/main/data/synthetic/commitments.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"CommitmentID\", type text}, {\"ProjectID\", type text}, {\"FunderName\", type text}, {\"CommitmentDate\", type date}, {\"AmountCAD\", Currency.Type}, {\"Status\", type text}}, \"en-CA\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Active Commitments CAD",
+            "expression": "CALCULATE(SUM(commitments[AmountCAD]), commitments[Status] = \"Active\")",
+            "formatString": "$#,##0;($#,##0);$#,##0"
+          }
+        ]
+      },
+      {
+        "name": "expenditures",
+        "columns": [
+          {
+            "name": "ExpenditureID",
+            "dataType": "string",
+            "sourceColumn": "ExpenditureID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ProjectID",
+            "dataType": "string",
+            "sourceColumn": "ProjectID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TransactionDate",
+            "dataType": "dateTime",
+            "sourceColumn": "TransactionDate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FiscalYear",
+            "dataType": "int64",
+            "sourceColumn": "FiscalYear",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "AmountCAD",
+            "dataType": "decimal",
+            "sourceColumn": "AmountCAD",
+            "summarizeBy": "sum",
+            "formatString": "$#,##0;($#,##0);$#,##0"
+          },
+          {
+            "name": "Category",
+            "dataType": "string",
+            "sourceColumn": "Category",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Status",
+            "dataType": "string",
+            "sourceColumn": "Status",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "expenditures",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(Web.Contents(\"https://raw.githubusercontent.com/SARIKA24KADAM/research-impact-dashboard/main/data/synthetic/expenditures.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"ExpenditureID\", type text}, {\"ProjectID\", type text}, {\"TransactionDate\", type date}, {\"FiscalYear\", Int64.Type}, {\"AmountCAD\", Currency.Type}, {\"Category\", type text}, {\"Status\", type text}}, \"en-CA\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Actual Expenditure CAD",
+            "expression": "CALCULATE(SUM(expenditures[AmountCAD]), expenditures[Status] = \"Posted\")",
+            "formatString": "$#,##0;($#,##0);$#,##0"
+          }
+        ]
+      },
+      {
+        "name": "kpi_actuals",
+        "columns": [
+          {
+            "name": "ActualID",
+            "dataType": "string",
+            "sourceColumn": "ActualID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ProjectID",
+            "dataType": "string",
+            "sourceColumn": "ProjectID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "KPIID",
+            "dataType": "string",
+            "sourceColumn": "KPIID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PeriodStart",
+            "dataType": "dateTime",
+            "sourceColumn": "PeriodStart",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PeriodEnd",
+            "dataType": "dateTime",
+            "sourceColumn": "PeriodEnd",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ActualValue",
+            "dataType": "double",
+            "sourceColumn": "ActualValue",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "TargetValue",
+            "dataType": "double",
+            "sourceColumn": "TargetValue",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "SubmissionStatus",
+            "dataType": "string",
+            "sourceColumn": "SubmissionStatus",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "IsFictional",
+            "dataType": "boolean",
+            "sourceColumn": "IsFictional",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "kpi_actuals",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(Web.Contents(\"https://raw.githubusercontent.com/SARIKA24KADAM/research-impact-dashboard/main/data/synthetic/kpi_actuals.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"ActualID\", type text}, {\"ProjectID\", type text}, {\"KPIID\", type text}, {\"PeriodStart\", type date}, {\"PeriodEnd\", type date}, {\"ActualValue\", type number}, {\"TargetValue\", type number}, {\"SubmissionStatus\", type text}, {\"IsFictional\", type logical}}, \"en-CA\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Average KPI Actual",
+            "expression": "AVERAGE(kpi_actuals[ActualValue])",
+            "formatString": "0.0"
+          },
+          {
+            "name": "Prototype Readiness",
+            "expression": "CALCULATE(AVERAGE(kpi_actuals[ActualValue]), kpi_actuals[KPIID] = \"K01\")",
+            "formatString": "0.0"
+          }
+        ]
+      },
+      {
+        "name": "milestones",
+        "columns": [
+          {
+            "name": "MilestoneID",
+            "dataType": "string",
+            "sourceColumn": "MilestoneID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ProjectID",
+            "dataType": "string",
+            "sourceColumn": "ProjectID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MilestoneName",
+            "dataType": "string",
+            "sourceColumn": "MilestoneName",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DueDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DueDate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ActualDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ActualDate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Status",
+            "dataType": "string",
+            "sourceColumn": "Status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "OwnerID",
+            "dataType": "string",
+            "sourceColumn": "OwnerID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Priority",
+            "dataType": "string",
+            "sourceColumn": "Priority",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "milestones",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(Web.Contents(\"https://raw.githubusercontent.com/SARIKA24KADAM/research-impact-dashboard/main/data/synthetic/milestones.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"MilestoneID\", type text}, {\"ProjectID\", type text}, {\"MilestoneName\", type text}, {\"DueDate\", type date}, {\"ActualDate\", type date}, {\"Status\", type text}, {\"OwnerID\", type text}, {\"Priority\", type text}}, \"en-CA\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Milestone Count",
+            "expression": "COUNTROWS(milestones)",
+            "formatString": "#,##0"
+          }
+        ]
+      },
+      {
+        "name": "reporting_obligations",
+        "columns": [
+          {
+            "name": "ObligationID",
+            "dataType": "string",
+            "sourceColumn": "ObligationID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ProjectID",
+            "dataType": "string",
+            "sourceColumn": "ProjectID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ReportingPeriodEnd",
+            "dataType": "dateTime",
+            "sourceColumn": "ReportingPeriodEnd",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DueDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DueDate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ReceivedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ReceivedDate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Status",
+            "dataType": "string",
+            "sourceColumn": "Status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ReportingType",
+            "dataType": "string",
+            "sourceColumn": "ReportingType",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "reporting_obligations",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(Web.Contents(\"https://raw.githubusercontent.com/SARIKA24KADAM/research-impact-dashboard/main/data/synthetic/reporting_obligations.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"ObligationID\", type text}, {\"ProjectID\", type text}, {\"ReportingPeriodEnd\", type date}, {\"DueDate\", type date}, {\"ReceivedDate\", type date}, {\"Status\", type text}, {\"ReportingType\", type text}}, \"en-CA\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Expected Reports",
+            "expression": "COUNTROWS(reporting_obligations)",
+            "formatString": "#,##0"
+          },
+          {
+            "name": "On-time Reports",
+            "expression": "CALCULATE(COUNTROWS(reporting_obligations), reporting_obligations[Status] = \"On Time\")",
+            "formatString": "#,##0"
+          },
+          {
+            "name": "On-time Reporting %",
+            "expression": "DIVIDE([On-time Reports], [Expected Reports])",
+            "formatString": "0.0%"
+          }
+        ]
+      },
+      {
+        "name": "research_outputs",
+        "columns": [
+          {
+            "name": "OutputID",
+            "dataType": "string",
+            "sourceColumn": "OutputID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ProjectID",
+            "dataType": "string",
+            "sourceColumn": "ProjectID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "OutputType",
+            "dataType": "string",
+            "sourceColumn": "OutputType",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Title",
+            "dataType": "string",
+            "sourceColumn": "Title",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PublicationDate",
+            "dataType": "dateTime",
+            "sourceColumn": "PublicationDate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PeerReviewed",
+            "dataType": "string",
+            "sourceColumn": "PeerReviewed",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Status",
+            "dataType": "string",
+            "sourceColumn": "Status",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "research_outputs",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(Web.Contents(\"https://raw.githubusercontent.com/SARIKA24KADAM/research-impact-dashboard/main/data/synthetic/research_outputs.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"OutputID\", type text}, {\"ProjectID\", type text}, {\"OutputType\", type text}, {\"Title\", type text}, {\"PublicationDate\", type date}, {\"PeerReviewed\", type text}, {\"Status\", type text}}, \"en-CA\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Recorded Research Outputs",
+            "expression": "COUNTROWS(research_outputs)",
+            "formatString": "#,##0"
+          }
+        ]
+      },
+      {
+        "name": "risks",
+        "columns": [
+          {
+            "name": "RiskID",
+            "dataType": "string",
+            "sourceColumn": "RiskID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ProjectID",
+            "dataType": "string",
+            "sourceColumn": "ProjectID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "RiskCategory",
+            "dataType": "string",
+            "sourceColumn": "RiskCategory",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Description",
+            "dataType": "string",
+            "sourceColumn": "Description",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Likelihood",
+            "dataType": "string",
+            "sourceColumn": "Likelihood",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Impact",
+            "dataType": "string",
+            "sourceColumn": "Impact",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Status",
+            "dataType": "string",
+            "sourceColumn": "Status",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "risks",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(Web.Contents(\"https://raw.githubusercontent.com/SARIKA24KADAM/research-impact-dashboard/main/data/synthetic/risks.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"RiskID\", type text}, {\"ProjectID\", type text}, {\"RiskCategory\", type text}, {\"Description\", type text}, {\"Likelihood\", type text}, {\"Impact\", type text}, {\"Status\", type text}}, \"en-CA\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Open Risks",
+            "expression": "CALCULATE(COUNTROWS(risks), risks[Status] = \"Open\")",
+            "formatString": "#,##0"
+          }
+        ]
+      },
+      {
+        "name": "corrective_actions",
+        "columns": [
+          {
+            "name": "ActionID",
+            "dataType": "string",
+            "sourceColumn": "ActionID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "RiskID",
+            "dataType": "string",
+            "sourceColumn": "RiskID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ProjectID",
+            "dataType": "string",
+            "sourceColumn": "ProjectID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ActionDescription",
+            "dataType": "string",
+            "sourceColumn": "ActionDescription",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "OwnerID",
+            "dataType": "string",
+            "sourceColumn": "OwnerID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DueDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DueDate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Status",
+            "dataType": "string",
+            "sourceColumn": "Status",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "corrective_actions",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(Web.Contents(\"https://raw.githubusercontent.com/SARIKA24KADAM/research-impact-dashboard/main/data/synthetic/corrective_actions.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"ActionID\", type text}, {\"RiskID\", type text}, {\"ProjectID\", type text}, {\"ActionDescription\", type text}, {\"OwnerID\", type text}, {\"DueDate\", type date}, {\"Status\", type text}}, \"en-CA\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dq_issues",
+        "columns": [
+          {
+            "name": "IssueID",
+            "dataType": "string",
+            "sourceColumn": "IssueID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ProjectID",
+            "dataType": "string",
+            "sourceColumn": "ProjectID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TableName",
+            "dataType": "string",
+            "sourceColumn": "TableName",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "IssueType",
+            "dataType": "string",
+            "sourceColumn": "IssueType",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Severity",
+            "dataType": "string",
+            "sourceColumn": "Severity",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Description",
+            "dataType": "string",
+            "sourceColumn": "Description",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Status",
+            "dataType": "string",
+            "sourceColumn": "Status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "OpenedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "OpenedDate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "OwnerID",
+            "dataType": "string",
+            "sourceColumn": "OwnerID",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dq_issues",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(Web.Contents(\"https://raw.githubusercontent.com/SARIKA24KADAM/research-impact-dashboard/main/data/synthetic/dq_issues.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Typed = Table.TransformColumnTypes(Headers, {{\"IssueID\", type text}, {\"ProjectID\", type text}, {\"TableName\", type text}, {\"IssueType\", type text}, {\"Severity\", type text}, {\"Description\", type text}, {\"Status\", type text}, {\"OpenedDate\", type date}, {\"OwnerID\", type text}}, \"en-CA\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Open Data Quality Issues",
+            "expression": "CALCULATE(COUNTROWS(dq_issues), dq_issues[Status] = \"Open\")",
+            "formatString": "#,##0"
+          }
+        ]
+      },
+      {
+        "name": "public_energy_context",
+        "columns": [
+          {
+            "name": "Country",
+            "dataType": "string",
+            "sourceColumn": "Country",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Year",
+            "dataType": "int64",
+            "sourceColumn": "Year",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "RenewableShare",
+            "dataType": "double",
+            "sourceColumn": "RenewableShare",
+            "summarizeBy": "average",
+            "formatString": "0.0"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "public_energy_context",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(Web.Contents(\"https://raw.githubusercontent.com/SARIKA24KADAM/research-impact-dashboard/main/data/public/global-data-on-sustainable-energy.csv\"), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Canada = Table.SelectRows(Headers, each [Entity] = \"Canada\"),",
+                "    Selected = Table.SelectColumns(Canada, {\"Entity\", \"Year\", \"Renewable energy share in the total final energy consumption (%)\"}),",
+                "    Renamed = Table.RenameColumns(Selected, {{\"Entity\", \"Country\"}, {\"Renewable energy share in the total final energy consumption (%)\", \"RenewableShare\"}}),",
+                "    Typed = Table.TransformColumnTypes(Renamed, {{\"Country\", type text}, {\"Year\", Int64.Type}, {\"RenewableShare\", type number}}, \"en-CA\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+
